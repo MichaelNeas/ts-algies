@@ -8,12 +8,13 @@ import { ApiService } from '../../shared';
   styleUrls: ['./array.component.scss'],
 })
 export class ArrayComponent implements OnInit {
+	arrayValues: number[] = [1,2,3,4,5]
 
-  constructor(private api: ApiService) {
-    // Do something with api
-  }
+	constructor(private api: ApiService) {
+	// Do something with api
+	}
 
-  ngOnInit(){
+	ngOnInit(){
 
-  }
+	}
 }
