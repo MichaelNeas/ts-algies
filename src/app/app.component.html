@@ -6,7 +6,7 @@
 	<div class="dropdown">
 		<button class="dropbtn">Data Structures</button>
 		<div class="dropdown-content">
-	    	<a href="#" *ngFor="let ds of dataStructures">{{ds}}</a>
+	    	<a *ngFor="let ds of dataStructures" [routerLink]="ds.router">{{ds.name}}</a>
 	    </div>
 	</div>
 	<div class="dropdown">
@@ -22,10 +22,6 @@
   <h1>{{api.title}}</h1>
 </header>
 <main>
-
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/binarytree.png">
-
   <router-outlet></router-outlet>
 </main>
 <footer>

@@ -2,7 +2,7 @@
 
 ```
 # change directory to your app
-$ cd my-app
+$ cd ts-algies
 
 # install the dependencies with npm
 $ npm install
