@@ -2,7 +2,29 @@
 	border: 1px solid black;
 	display: inline-block;
 	padding: .5em;
+	cursor: pointer;
+	&:hover{
+		background-color: yellow;
+	}
 }
-.numberInsert{
-	width: .5em;
+.arrayItem{
+	display: inline-block;
+	cursor: pointer;
+}
+
+.shrinkWidth{
+	width: 3em;
+}
+
+.adding{
+	display: block;
+}
+
+.result{
+	margin-left: 1em;
+	display: inline-block;
+}
+
+.related{
+	color:yellow;
 }

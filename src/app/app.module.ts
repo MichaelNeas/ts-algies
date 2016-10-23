@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent }    from './app.component';
 
 import { AboutComponent }  from './about/about.component';
-import { ArrayComponent }  from './data-structures/array/array.component'; 
+import { ArrayComponent }  from './data-structures/array/array.component';
 import { HomeComponent }   from './home/home.component';
 
 import { routing } from './app.routing';

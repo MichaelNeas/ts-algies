@@ -2,6 +2,42 @@
 
 <p>The array is one of the most used and basic data structures.  It consists of a collection of elements which can be identified by at least one array index or key.</p>
 
-<div class="arrayBox" *ngFor="let val of arrayValues">{{val}}</div>
+<p>Below you can see each element of the array has [index,value], <em>Note: arrays and most collections in programming are usually 0 indexed, meaning the first index is 0.</em></p>
 
-<input class="numberInsert" type="text"><button md-raised-button color="accent">Add</button>
+<p>Arrays have a length property, <span class="related">Array.length</span> will return the length of a given array at negligible runtime cost.</p>
+
+<p>Array.splice(index), hover over an element in the array and click on it to remove an element.  This takes O(n), time due to the reindexing of the array after an element is removed</p>
+
+<div class="arrayBox" *ngFor="let val of arrayValues; let i = index; " (click)="removeElement(i)" title="Array.splice({{i}})">
+	<div class="arrayItem">[{{i}},{{val}}]</div>
+</div>
+<span class="related">Length: {{getLength()}}</span>
+
+<div class="adding">
+	<md-input class="shrinkWidth" #numberInput placeholder="value" color="accent"></md-input> 
+	<button md-raised-button color="accent" title="Array.push({{numberInput.value}}) to the end of array" (click)="pushValue(numberInput)">Push</button>
+	<button md-raised-button color="accent" title="Array.pop() off the first element" (click)="popOff()">Pop</button>
+	<p>Array.push(value), Pushing a number occurs in O(1), Array.pop() takes the last element off the array, taking O(1) time.  The array may need to be reallocated then it will be O(n) when all elements will be copied to a larger/smaller array.  This occurs when the engine defined boundaries are crossed.</p>
+</div>
+
+<div class="inserting">
+	<md-input class="shrinkWidth" #indexInput placeholder="index" color="accent"></md-input>
+	<md-input class="shrinkWidth" #valueInput placeholder="value" color="accent"></md-input> 
+	<button md-raised-button color="accent" title="Array.splice({{indexInput.value}},1,{{valueInput.value}}) replaces the index: {{indexInput.value}}, with a new value" (click)="replaceWith(indexInput, valueInput)">Splice!</button>
+	<p>Array.splice(index, howMany, with) is a powerful array operation that will removes a given index for a specific "howMany" indexes and puts in their place the "with" items.  This operation takes place in O(n) time due to reallocation of array elements.  If you choose an index outside the current array, it pushes it to the end.</p>
+</div>
+
+
+<div class="accessing">
+	<md-input class="shrinkWidth" #getNumberInput placeholder="index" color="accent"></md-input> 
+	<button md-raised-button color="accent" title="Array[{{getNumberInput.value}}], returns the value of the element at the index" (click)="getValue(getNumberInput)">Get Value</button>
+	<div class="result" *ngIf="gottenElement">Index: {{searchedIndex}}, returns: {{gottenElement}}</div>
+	<p>Accessing an array occurs in O(1) time, Array[index] because the memory address of the index is calculated independently of the size of the array</p>
+</div>
+
+<div class="searching">
+	<md-input class="shrinkWidth" #searchValue placeholder="value" color="accent"></md-input> 
+	<button md-raised-button color="accent" title="Array.find({{searchValue.value}}), returns the first instance of the element" (click)="findValue(searchValue)">Search Value</button>
+	<div class="result" *ngIf="findElement">Search for: {{findElement}}, returns: {{foundElement}}, at index: {{foundIndex}}</div>
+	<p>Searching an array will take O(n) time because at worst, you will have to check each element of the array to find that your number isn't there or is the last element. Array.find() returns the array element value if any of the elements in the array pass the test, otherwise it returns undefined</p>
+</div>
