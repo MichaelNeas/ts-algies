@@ -1,3 +1,8 @@
+code{
+	background-color: gray;
+	color: blue;
+	text-align: left;
+}
 .arrayBox{
 	border: 1px solid black;
 	display: inline-block;
@@ -16,7 +21,7 @@
 	width: 3em;
 }
 
-.adding{
+.adding, .iterating{
 	display: block;
 }
 
@@ -27,4 +32,17 @@
 
 .related{
 	color:yellow;
+}
+
+.activity{
+	background-color: orange;
+	border: 1px solid black;
+	display: inline-block;
+	padding: .5em;
+	cursor: pointer;
+}
+
+.center{
+	margin: 0 auto;
+	text-align: center;
 }

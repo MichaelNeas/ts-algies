@@ -24,7 +24,7 @@
 	<md-input class="shrinkWidth" #indexInput placeholder="index" color="accent"></md-input>
 	<md-input class="shrinkWidth" #valueInput placeholder="value" color="accent"></md-input> 
 	<button md-raised-button color="accent" title="Array.splice({{indexInput.value}},1,{{valueInput.value}}) replaces the index: {{indexInput.value}}, with a new value" (click)="replaceWith(indexInput, valueInput)">Splice!</button>
-	<p>Array.splice(index, howMany, with) is a powerful array operation that will removes a given index for a specific "howMany" indexes and puts in their place the "with" items.  This operation takes place in O(n) time due to reallocation of array elements.  If you choose an index outside the current array, it pushes it to the end.</p>
+	<p>Array.splice(index, howMany, with) is a powerful array operation that will removes a given index for a specific "howMany" indexes and puts in their place the "with" items.  This operation takes place in O(n) time due to reallocation of array elements.  If you choose an index outside the current array, it pushes your value to the end.</p>
 </div>
 
 
@@ -38,6 +38,69 @@
 <div class="searching">
 	<md-input class="shrinkWidth" #searchValue placeholder="value" color="accent"></md-input> 
 	<button md-raised-button color="accent" title="Array.find({{searchValue.value}}), returns the first instance of the element" (click)="findValue(searchValue)">Search Value</button>
-	<div class="result" *ngIf="findElement">Search for: {{findElement}}, returns: {{foundElement}}, at index: {{foundIndex}}</div>
+	<div class="result" *ngIf="findElement">
+		Search for: {{findElement}}, returns: {{foundElement}}, at index: {{foundIndex}}
+	</div>
 	<p>Searching an array will take O(n) time because at worst, you will have to check each element of the array to find that your number isn't there or is the last element. Array.find() returns the array element value if any of the elements in the array pass the test, otherwise it returns undefined</p>
+</div>
+
+<hr>
+
+<h1>Advanced Array Operations</h1>
+<div [ngClass]="activeClass === i ? 'activity':'arrayBox'" *ngFor="let val of advancedArrayValues; let i = index; ">
+	<div class="arrayItem">{{val}}</div>
+</div>
+<span class="related">Length: {{getAdvancedLength()}}</span>
+
+<div class="iterating">
+	<button md-raised-button color="accent" title="Array.forEach(current, index, array), iterates through an array but doesn't return anything" (click)="loop()">Loop Through</button>
+	<p>Array.forEach(value, index, array) will look through the array and not return anything.  This operation is generally slower than if you did a plain for() loop, but it is a helpful O(n) operation nevertheless!</p>
+</div>
+
+<div class="sorting">
+	<button md-raised-button color="accent" title="Array.sort(func()), sorts for you, comparision function optional" (click)="sortArray()">Sort</button>
+	<p>Array.sort(func()) will sort and return an array using different sorting algorithms based on what type of array is presented.  O(nlogn) can generally be assumed however.  And you can also make your own comparision function as a callback! </p>
+</div>
+
+<div *ngIf="filteredArray && filteredArray.length !== 0">
+	<div class="arrayBox" *ngFor="let val of filteredArray; let i = index; ">
+		<div class="arrayItem">{{val}}</div>
+	</div><span class="related">Length: {{getNewLength()}}</span>
+</div>
+
+<div class="filter">
+	<md-input class="shrinkWidth" #filterInput placeholder="value" color="accent"></md-input> 
+	<button md-raised-button color="accent" title="Array.filter({{filterInput.value}}) to filter out that value" (click)="filterValue(filterInput)">Filter</button>
+	<p>Array.filter(function(currentValue, index, arr), thisValue), requires a callback function and in O(n) time will return a filtered array!  In this example you get a new array with all values !== your input.</p>
+</div>
+
+<div *ngIf="mappedArray && mappedArray.length !== 0">
+	<div class="arrayBox" *ngFor="let val of mappedArray; let i = index; ">
+		<div class="arrayItem">{{val}}</div>
+	</div>
+</div>
+
+<div class="map">
+	<md-input class="shrinkWidth" #mapInput placeholder="value" color="accent"></md-input> 
+	<button md-raised-button color="accent" title="Array.map({{mapInput.value}}) to map that value" (click)="mapValue(mapInput)">Map</button><span *ngIf="mappedValue">You Multiplied Everything By: {{mappedValue}}</span>
+	<p>Array.map(function(currentValue, index, arr), thisValue), requires a callback function and in O(n) time will return a new array with the results of calling a function for every array element.  For this example put a multiplicative number you want to multiply everything in the array by!</p>
+</div>
+
+<div *ngIf="maxReduced">
+	Max from array: {{maxReduced}}
+</div>
+
+<div *ngIf="sumReduced">
+	Sum from array: {{sumReduced}}
+</div>
+
+<div *ngIf="minReduced">
+	Min from array: {{minReduced}}
+</div>
+
+<div class="reduce">
+	<button md-raised-button color="accent" title="Array.reduce()reduces to a single value" (click)="reduceMax()">Find Max</button>
+	<button md-raised-button color="accent" title="Array.reduce() reduces to a single value" (click)="reduceSum()">Find Sum</button>
+	<button md-raised-button color="accent" title="Array.reduce( reduces to a single value" (click)="reduceMin()">Find Min</button>
+	<p>Array.reduce(function(total, currentValue, index, arr), initialValue), requires a callback function with total being required and in O(n) time will return a single value from evaluating the array.  Here we find the maximum, sum and minimum.</p>
 </div>
