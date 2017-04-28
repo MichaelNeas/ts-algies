@@ -1,5 +1,7 @@
 # ts-algies
 
+Plan: Upgrade to angular 4 seed. Go.
+
 ```
 # change directory to your app
 $ cd ts-algies
@@ -16,7 +18,7 @@ go to [http://localhost:8080](http://localhost:8080) in your browser.
 $ git clone https://github.com/preboot/angular2-webpack.git my-app
 
 ## Influenced By
-[http://localhost:8080] (http://bigocheatsheet.com/)
+[Big 0 cheat sheet](http://bigocheatsheet.com/)
 
 # License
 
