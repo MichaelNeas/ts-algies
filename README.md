@@ -1,6 +1,6 @@
 # ts-algies
 
-Plan: Upgrade to angular 4 seed. Go.
+Plan: Upgrade to angular 5
 
 ```
 # change directory to your app
